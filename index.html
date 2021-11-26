@@ -6,11 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebRTC Test</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <iframe src="" frameborder="0"></iframe>
+    <iframe id="iframe-01" src="presentations/1.html" frameborder="0"></iframe>
 
+    <div id='buttons'>
+        <button onclick="SharePresentation.initScreenShareEvent()" id="cropAria">Crop</button>
+        <button onclick="nextSlide()" id="nextSlide">Next Slide</button>
+        <button onclick="SharePresentation.startSharing()" >Start sharing</button>
+    </div>
+
+    <script>
+        let i = 2;
+        function nextSlide() {
+            const iFrame = document.querySelector("#iframe-01");
+            iFrame.setAttribute("src", `presentations/${i}.html`);
+            i++;
+            if (i === 7) i = 2;
+        }
+    </script>
     <script src="screensharing.js"></script>
 </body>
 

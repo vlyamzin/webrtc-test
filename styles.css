@@ -1,0 +1,57 @@
+#iframe-01 {
+  width: 1024px;
+  height: 768px;
+}
+
+#sharingContainer {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 300px;
+  z-index: 10;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 1px 1px 7px 0px #343434;
+}
+#sharingScreen {
+  width: 100%;
+  height: auto;
+  background-color: #6a6a6a;
+}
+
+#sharingScreen.visible {
+  display: block;
+}
+
+ /* screen share area selector */
+ #backdrop-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#drag-markers-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.draggable {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  cursor: move;
+  z-index: 2;
+}
+
+/* end screen share area selector */
+#buttons {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  background: #6a6a6a;
+  z-index: 999;
+}
