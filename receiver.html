@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Video Receiver</title>
+    <style>
+        #connectionId>* {
+            display: inline-block;
+        }
+
+        #start-connection {
+            margin-left: 10px;
+        }
+
+        #received-content {
+            width: 640px;
+            height: 480px;
+            margin-top: 20px;
+            background-color: #000;
+        }
+    </style>
+
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+</head>
+
+<body>
+    <div id="connectionId">
+        <label for="input-id">Connection id</label>
+        <input type="text" name="input-id" id="input-id">
+    </div>
+    <video id="received-content" autoplay></video>
+
+    <script src="receiver.js"></script>
+</body>
+
+</html>
