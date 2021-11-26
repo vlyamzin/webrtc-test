@@ -1,0 +1,632 @@
+/******* Titre de la page
+ ******************************************************************************/
+#content0 {
+    font-family: 'conduit_itc_light';
+    color: #e41b2a;
+    font-size: 53px;
+    font-weight: bold;
+    text-align: center;
+    top: 45px;
+    text-transform: uppercase;
+    text-align: center;
+    top: 70px;
+}
+
+#content0 img {
+    position: relative;
+    margin: auto;
+}
+
+#content0 .important {
+    position: relative;
+    font-family: 'conduit_itc_bold';
+}
+
+/******* Arbres basique
+ ******************************************************************************/
+#tree_base #trunk_base {
+    width: 333px;
+    height: 525px;
+    top: 243px;
+    left: 691px;
+    background: url("../images/treePage_tree_base.png") no-repeat top center;
+}
+
+#tree_base #foliage_base {
+    width: 276px;
+    height: 283px;
+    top: 212px;
+    left: 675px;
+    background: url("../images/treePage_feuillage_base.png") no-repeat top center;
+}
+
+#tree_base #leaf0 {
+    left: 683px;
+    top: 226px;
+}
+
+#tree_base #leaf1 {
+    left: 807px;
+    top: 263px;
+}
+
+#tree_base #leaf2 {
+    left: 815px;
+    top: 417px;
+}
+
+#tree_base #leaf3 {
+    left: 848px;
+    top: 361px;
+}
+
+#tree_base #leaf4 {
+    left: 681px;
+    top: 333px;
+}
+
+#tree_base #leaf5 {
+    left: 740px;
+    top: 265px;
+}
+
+#tree_base #leaf6 {
+    left: 682px;
+    top: 250px;
+}
+
+#tree_base #leaf7 {
+    left: 740px;
+    top: 334px;
+}
+
+#tree_base #leaf8 {
+    left: 878px;
+    top: 312px;
+}
+
+#tree_base #leaf9 {
+    left: 825px;
+    top: 225px;
+}
+
+#tree_base #leaf10 {
+    left: 734px;
+    top: 226px;
+}
+
+#tree_base #leaf11 {
+    left: 729px;
+    top: 425px;
+}
+
+#tree_base #leaf12 {
+    left: 754px;
+    top: 354px;
+}
+
+/******* Arbres été
+ ******************************************************************************/
+.apple {
+    width: 17px;
+    height: 18px;
+    background: url("../images/treePage_pomme.png") no-repeat top center;
+    position: relative;
+}
+
+.falling_apple {
+    -webkit-transform: translate3d(0px, 200px, 0px);
+    -webkit-transition-timing-function: ease-in;
+}
+
+.falling_apple_further {
+    -webkit-transform: translate3d(0px, 300px, 0px);
+    -webkit-transition-timing-function: ease-in;
+}
+
+#apple0 {
+    left: 800px;
+    top: 450px;
+}
+
+#apple1 {
+    left: 880px;
+    top: 375px;
+}
+
+#apple2 {
+    left: 710px;
+    top: 345px;
+}
+
+#apple3 {
+    left: 730px;
+    top: 300px;
+}
+
+#apple4 {
+    left: 725px;
+    top: 230px;
+}
+
+#apple5 {
+    left: 835px;
+    top: 160px;
+}
+
+#apple6 {
+    left: 885px;
+    top: 245px;
+}
+
+#apple_fix {
+    left: 697px;
+    top: 251px;
+    width: 228px;
+    height: 192px;
+    background: url("../images/treePage_pommes_fixes.png") no-repeat top center;
+}
+
+/******* Arbres automne
+ ******************************************************************************/
+#feuillage_autumn {
+    width: 275px;
+    height: 282px;
+    left: 676px;
+    top: 213px;
+    background: url("../images/treePage_feuillage_automne.png") no-repeat top center;
+}
+
+#feuilles_autumn {
+    width: 268px;
+    height: 266px;
+    left: 681px;
+    top: 224px;
+    background: url("../images/treePage_feuilles_automne.png") no-repeat top center;
+}
+
+.fallingLeave_1 {
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-name: fallingLeave_1;
+    -webkit-animation-timing-function: ease-in;
+}
+
+.fallingLeave_2 {
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-name: fallingLeave_2;
+    -webkit-animation-timing-function: ease-in;
+}
+
+.fallingLeave_3 {
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-name: fallingLeave_3;
+    -webkit-animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes fallingLeave_1 {
+    0% {
+        opacity: 1;
+        -webkit-transform: translate3d(0px, 0px, 0px) rotateZ(0deg);
+    }
+    
+    50% {
+        opacity: 1;
+        -webkit-transform: translate3d(100px, 50px, 0px) rotateZ(30deg);
+    }
+    
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(400px, 100px, 0px) rotateZ(-20deg);
+    }
+}
+
+@-webkit-keyframes fallingLeave_2 {
+    0% {
+        opacity: 1;
+        -webkit-transform: translate3d(0px, 0px, 0px) rotateZ(0deg);
+    }
+    
+    50% {
+        opacity: 1;
+        -webkit-transform: translate3d(200px, -80px, 0px) rotateZ(150deg);
+    }
+    
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(800px, -100px, 0px) rotateZ(-20deg);
+    }
+}
+
+@-webkit-keyframes fallingLeave_3 {
+    0% {
+        opacity: 1;
+        -webkit-transform: translate3d(0px, 0px, 0px) rotateZ(0deg);
+    }
+    
+    50% {
+        opacity: 1;
+        -webkit-transform: translate3d(200px, 100px, 0px) rotateZ(130deg);
+    }
+    
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(400px, 300px, 0px) rotateZ(50deg);
+    }
+}
+
+/******* Arbres printemps
+ ******************************************************************************/
+#tree_spring #fleurs {
+    left: 693px;
+    top: 240px;
+    width: 241px;
+    height: 223px;
+    background: url("../images/treePage_fleurs.png") no-repeat top center;
+}
+
+#tree_spring .pousse_rouge {
+    background: url("../images/treePage_pousse1.png") no-repeat top center;
+    width: 19px;
+    height: 21px;
+}
+
+#tree_spring .pousse_rouge.noheight {
+    height: 0px;
+    -webkit-transform: translate3d(0px, 21px, 0px);
+}
+
+#tree_spring .pousse_blanche {
+    background: url("../images/treePage_pousse0.png") no-repeat top center;
+    width: 23px;
+    height: 23px;
+}
+
+#tree_spring .pousse_blanche.noheight {
+    height: 0px;
+    -webkit-transform: translate3d(0px, 23px, 0px);
+}
+
+#tree_spring .pousse_jaune {
+    background: url("../images/treePage_pousse2.png") no-repeat top center;
+    width: 16px;
+    height: 25px;
+}
+
+#tree_spring .pousse_jaune.noheight {
+    height: 0px;
+    -webkit-transform: translate3d(0px, 25px, 0px);
+}
+
+#tree_spring .pousse_violette {
+    background: url("../images/treePage_pousse3.png") no-repeat top center;
+    width: 11px;
+    height: 28px;
+}
+
+#tree_spring .pousse_violette.noheight {
+    height: 0px;
+    -webkit-transform: translate3d(0px, 25px, 0px);
+}
+
+#tree_spring .pousse_rouge_2 {
+    background: url("../images/treePage_pousse4.png") no-repeat top center;
+    width: 19px;
+    height: 32px;
+}
+
+#tree_spring .pousse_rouge_2.noheight {
+    height: 0px;
+    -webkit-transform: translate3d(0px, 32px, 0px);
+}
+
+#pousse0 {
+    top: 565px;
+    left: 856px;
+}
+
+#pousse1 {
+    top: 600px;
+    left: 930px;
+}
+
+#pousse2 {
+    top: 630px;
+    left: 770px;
+}
+
+#pousse3 {
+    top: 570px;
+    left: 660px;
+}
+
+#pousse4 {
+    top: 606px;
+    left: 738px;
+}
+
+#pousse5 {
+    top: 600px;
+    left: 840px;
+}
+
+#pousse6 {
+    top: 550px;
+    left: 750px;
+}
+
+#pousse7 {
+    top: 589px;
+    left: 669px;
+}
+
+#pousse8 {
+    top: 605px;
+    left: 871px;
+}
+
+#pousse9 {
+    top: 610px;
+    left: 814px;
+}
+
+#pousse10 {
+    top: 563px;
+    left: 727px;
+}
+
+#pousse11 {
+    top: 591px;
+    left: 715px;
+}
+
+#pousse12 {
+    top: 600px;
+    left: 765px;
+}
+
+/******* Arbres hiver
+ ******************************************************************************/
+#neige {
+    width: 335px;
+    height: 464px;
+    top: 240px;
+    left: 689px;
+    background: url("../images/treePage_neige.png") no-repeat top center;
+}
+
+.flocon {
+    width: 21px;
+    height: 20px;
+    background: url("../images/treePage_flocon.png") no-repeat top center;
+    top: -20px;
+}
+
+.flocon_tombe_1 {
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: animation_flocon_tombe_1;
+    -webkit-animation-timing-function: linear;
+}
+
+.flocon_tombe_2 {
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: animation_flocon_tombe_2;
+    -webkit-animation-timing-function: linear;
+}
+
+.flocon_tombe_3 {
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: animation_flocon_tombe_3;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes animation_flocon_tombe_1 {
+    0% {
+        opacity: 1;
+        -webkit-transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale3d(0.6, 0.6, 06);
+    }
+    
+    50% {
+        opacity: 1;
+        -webkit-transform: translate3d(50px, 220px, 0px) rotateZ(30deg) scale3d(0.6, 0.6, 06);
+    }
+    
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(100px, 450px, 0px) rotateZ(-20deg) scale3d(0.6, 0.6, 06);
+    }
+}
+
+@-webkit-keyframes animation_flocon_tombe_2 {
+    0% {
+        opacity: 1;
+        -webkit-transform: translate3d(0px, 0px, 0px) rotateZ(0deg);
+    }
+    
+    50% {
+        opacity: 1;
+        -webkit-transform: translate3d(0px, 300px, 0px) rotateZ(30deg);
+    }
+    
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0px, 600px, 0px) rotateZ(-20deg);
+    }
+}
+
+@-webkit-keyframes animation_flocon_tombe_3 {
+    0% {
+        opacity: 1;
+        -webkit-transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale3d(0.8, 0.8, 08);
+    }
+    
+    50% {
+        opacity: 1;
+        -webkit-transform: translate3d(50px, 200px, 0px) rotateZ(30deg) scale3d(0.8, 0.8, 08);
+    }
+    
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0px, 400px, 0px) rotateZ(-20deg) scale3d(0.8, 0.8, 08);
+    }
+}
+
+
+#flocon0 {
+    left: 700px;
+}
+
+#flocon1 {
+    left: 613px;
+}
+
+#flocon2 {
+    left: 724px;
+}
+
+#flocon3 {
+    left: 755px;
+}
+
+#flocon4 {
+    left: 888px;
+}
+
+#flocon5 {
+    left: 810px;
+}
+
+#flocon6 {
+    left: 685px;
+}
+
+#flocon7 {
+    left: 769px;
+}
+
+#flocon8 {
+    left: 692px;
+}
+
+#flocon9 {
+    left: 835px;
+}
+
+#flocon10 {
+    left: 700px;
+}
+
+#flocon11 {
+    left: 613px;
+}
+
+#flocon12 {
+    left: 724px;
+}
+
+#flocon13 {
+    left: 755px;
+}
+
+#flocon14 {
+    left: 888px;
+}
+
+#flocon15 {
+    left: 810px;
+}
+
+#flocon16 {
+    left: 685px;
+}
+
+#flocon17 {
+    left: 769px;
+}
+
+#flocon18 {
+    left: 692px;
+}
+
+#flocon19 {
+    left: 835px;
+}
+
+
+#flocon20 {
+    left: 700px;
+}
+
+#flocon21 {
+    left: 613px;
+}
+
+#flocon22 {
+    left: 724px;
+}
+
+#flocon23 {
+    left: 788px;
+}
+
+/******* Textes
+ ******************************************************************************/
+.season_text {
+    top: 270px;
+    left: 149px;
+}
+
+/******* Tirette
+ ******************************************************************************/
+#content1 {
+    left: 160px;
+    top: 696px;
+}
+
+#bt_zoom0 {
+    width: 171px;
+    height: 72px;
+    background: url("../images/treePage_tab.png") no-repeat top center;
+}
+
+/******* Reload
+ ******************************************************************************/
+#reload {
+    width: 238px;
+    height: 119px;
+    left: 762px;
+    top: 106px;
+    background: url("../images/treePage_reload.png") no-repeat top center;
+}
+
+#reset_button {
+    width: 278px;
+    height: 392px;
+    top: 210px;
+    left: 672px;
+    z-index: 99;
+}
+
+/******* Tuto
+ ******************************************************************************/
+#content2 {
+    width: 370px;
+    height: 46px;
+    left: 371px;
+    top: 716px;
+    background: url("../images/treePage_tuto.png") no-repeat top center;
+}
+
+/******* Popup
+ ******************************************************************************/
+#popup_close {
+    width: 50px;
+    height: 50px;
+    left: 460px;
+    top: 0px;
+}

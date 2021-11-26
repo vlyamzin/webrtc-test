@@ -1,0 +1,268 @@
+﻿/*Styles généraux*/
+
+* {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	
+}
+input {
+	-webkit-user-select: auto;
+	-khtml-user-select: auto;
+	-moz-user-select: auto;
+	-ms-user-select: auto;
+	user-select: auto;	
+}
+.clickable{
+	background-color:rgba(255,255,255,0);
+}
+
+#screen-container{
+	transition-duration: 0.35s; /* IE */
+	-ms-transition-duration: 0.35s;
+	-moz-transition-duration: 0.35s; /* Firefox 4 */
+	-webkit-transition-duration: 0.35s; /* Safari and Chrome */
+	-o-transition-duration: 0.35s; /* Opera */ 
+	/*-webkit-transition-duration: 0.35s;*/
+}
+
+/*Animation*/
+div{
+	transition-duration: 0.75s; /* IE */
+	-ms-transition-duration: 0.75s;
+	-moz-transition-duration: 0.75s; /* Firefox 4 */
+	-o-transition-duration: 0.75s; /* Opera */ 
+	-webkit-transition-duration: 0.75s; /* Safari and Chrome */
+	
+	transition-property: opacity, -ms-transform, width, height, color;
+	-ms-transition-property: opacity, -ms-transform, width, height, color;
+	-moz-transition-property: opacity, -moz-transform, width, height, color; /* Firefox 4 */
+	-o-transition-property:opacity, -o-transform, width, height, color; /* Opera */
+	-webkit-transition-property: opacity, -webkit-transform, width, height, color; /* Safari and Chrome */
+	
+	animation-timing-function:ease-out; /* W3C and Opera */
+	-ms-animation-timing-function:ease-out;
+	-moz-animation-timing-function:ease-out; /* Firefox */
+	-webkit-animation-timing-function:ease-out; /* Safari and Chrome */
+	
+	transform:translate3d(0, 0, 0) translate(0, 0) scale3d(1.0, 1.0, 1.0) scale(1.0, 1.0);
+	-ms-transform:translate3d(0, 0, 0) translate(0, 0) scale3d(1.0, 1.0, 1.0) scale(1.0, 1.0); /* IE 9 */
+	-moz-transform:translate3d(0, 0, 0) translate(0, 0) scale3d(1.0, 1.0, 1.0) scale(1.0, 1.0); /* Firefox */
+	-o-transform:translate3d(0, 0, 0) translate(0, 0) scale3d(1.0, 1.0, 1.0) scale(1.0, 1.0); /* Opera */
+	-webkit-transform:translate3D(0, 0, 0) scale3d(1.0, 1.0, 1.0); /* Safari and Chrome */
+}
+
+/**/
+
+.slightly-up{
+	transform:translate(0, -25px);
+	-ms-transform:translate(0, -25px); /* IE 9 */
+	-moz-transform:translate(0, -25px); /* Firefox */
+	-o-transform:translate(0, -25px); /* Opera */
+	-webkit-transform: translate3d(0, -25px, 0); /* Safari and Chrome */
+}
+
+.slightly-bottom{
+	transform:translate(0, 25px);
+	-ms-transform:translate(0, 25px); /* IE 9 */
+	-moz-transform:translate(0, 25px); /* Firefox */
+	-o-transform:translate(0, 25px); /* Opera */
+	-webkit-transform: translate3d(0, 25px, 0); /* Safari and Chrome */
+}
+
+.slightly-left{
+	transform:translate(-30px, 0);
+	-ms-transform:translate(-30px, 0); /* IE 9 */
+	-moz-transform:translate(-30px, 0); /* Firefox */
+	-o-transform:translate(-30px, 0); /* Opera */
+	-webkit-transform: translate3d(-30px, 0, 0); /* Safari and Chrome */
+}
+
+.slightly-right{
+	transform:translate(30px, 0);
+	-ms-transform:translate(30px, 0); /* IE 9 */
+	-moz-transform:translate(30px, 0); /* Firefox */
+	-o-transform:translate(30px, 0); /* Opera */
+	-webkit-transform: translate3d(30px, 0, 0); /* Safari and Chrome */
+}
+
+.up-off{
+	transform:translate(0, -65px);
+	-ms-transform:translate(0, -65px); /* IE 9 */
+	-moz-transform:translate(0, -65px); /* Firefox */
+	-o-transform:translate(0, -65px); /* Opera */
+	-webkit-transform: translate3d(0, -65px, 0); /* Safari and Chrome */
+}
+
+.bottom-off{
+	transform:translate(0, 65px);
+	-ms-transform:translate(0, 65px); /* IE 9 */
+	-moz-transform:translate(0, 65px); /* Firefox */
+	-o-transform:translate(0, 65px); /* Opera */
+	-webkit-transform: translate3d(0, 65px, 0); /* Safari and Chrome */
+}
+
+.left-off{
+	transform:translate(-80px, 0);
+	-ms-transform:translate(-80px, 0); /* IE 9 */
+	-moz-transform:translate(-80px, 0); /* Firefox */
+	-o-transform:translate(-80px, 0); /* Opera */
+	-webkit-transform: translate3d(-80px, 0, 0); /* Safari and Chrome */
+}
+
+.right-off{
+	transform:translate(80px, 0);
+	-ms-transform:translate(80px, 0); /* IE 9 */
+	-moz-transform:translate(80px, 0); /* Firefox */
+	-o-transform:translate(80px, 0); /* Opera */
+	-webkit-transform: translate3d(80px, 0, 0); /* Safari and Chrome */
+}
+
+.out-left{
+	transform:translate(-1024px, 0);
+	-ms-transform:translate(-1024px, 0); /* IE 9 */
+	-moz-transform:translate(-1024px, 0); /* Firefox */
+	-o-transform:translate(-1024px, 0); /* Opera */
+	-webkit-transform: translate3d(-1024px, 0, 0); /* Safari and Chrome */
+}
+
+.out-right{
+	transform:translate(1024px, 0);
+	-ms-transform:translate(1024px, 0); /* IE 9 */
+	-moz-transform:translate(1024px, 0); /* Firefox */
+	-o-transform:translate(1024px, 0); /* Opera */
+	-webkit-transform:translate3d(1024px, 0, 0); /* Safari and Chrome */
+	opacity: 0;
+}
+
+.out-top{
+	transform:translate(0, -768px);
+	-ms-transform:translate(0, -768px); /* IE 9 */
+	-moz-transform:translate(0, -768px); /* Firefox */
+	-o-transform:translate(0, -768px); /* Opera */
+	-webkit-transform: translate3D(0, -768px, 0); /* Safari and Chrome */
+}
+
+.out-bottom{
+	transform:translate(0, 768px);
+	-ms-transform:translate(0, 768px); /* IE 9 */
+	-moz-transform:translate(0, 768px); /* Firefox */
+	-o-transform:translate(0, 768px); /* Opera */
+	-webkit-transform: translate3D(0, 768px, 0); /* Safari and Chrome */
+}
+
+.miniaturized{
+	transform:scale(0.0, 0.0);
+	-ms-transform:scale(0.0, 0.0); /* IE 9 */
+	-moz-transform:scale(0.0, 0.0); /* Firefox */
+	-o-transform:scale(0.0, 0.0); /* Opera */
+	-webkit-transform: scale3d(0.0, 0.0, 1.0); /* Safari and Chrome */
+}
+
+.reduced{
+	transform:scale(0.5, 0.5);
+	-ms-transform:scale(0.5, 0.5); /* IE 9 */
+	-moz-transform:scale(0.5, 0.5, ); /* Firefox */
+	-o-transform:scale(0.5, 0.5); /* Opera */
+	-webkit-transform: scale3d(0.5, 0.5, 1.0); /* Safari and Chrome */
+}
+
+.horizontally-miniaturized{
+	transform:scale(0.0, 1.0);
+	-ms-transform:scale(0.0, 1.0); /* IE 9 */
+	-moz-transform:scale(0.0, 1.0); /* Firefox */
+	-o-transform:scale(0.0, 1.0); /* Opera */
+	-webkit-transform: scale3d(0.0, 1.0, 1.0); /* Safari and Chrome */
+}
+
+.vertically-miniaturized{
+	transform:scale(1.0, 0.0);
+	-ms-transform:scale(1.0, 0.0); /* IE 9 */
+	-moz-transform:scale(1.0, 0.0); /* Firefox */
+	-webkit-transform:scale(1.0, 0.0);
+	-o-transform:scale(1.0, 0.0); /* Opera */
+	-webkit-transform: scale3d(1.0, 0.0, 1.0); /* Safari and Chrome */
+}
+
+
+.stretched{
+	transform:scale(4.0, 4.0);
+	-ms-transform:scale(4.0, 4.0); /* IE 9 */
+	-moz-transform:scale(4.0, 4.0); /* Firefox */
+	-o-transform:scale(4.0, 4.0); /* Opera */
+	-webkit-transform: scale3d(4.0, 4.0, 1.0); /* Safari and Chrome */
+}
+
+.horizontally-stretched{
+	transform:scale(4.0, 1.0);
+	-ms-transform:scale(4.0, 1.0); /* IE 9 */
+	-moz-transform:scale(4.0, 1.0); /* Firefox */
+	-o-transform:scale(4.0, 1.0); /* Opera */
+	-webkit-transform: scale3d(4.0, 1.0, 1.0); /* Safari and Chrome */
+}
+
+.vertically-stretched{
+	transform:scale(1.0, 4.0);
+	-ms-transform:scale(1.0, 4.0); /* IE 9 */
+	-moz-transform:scale(1.0, 4.0); /* Firefox */
+	-o-transform:scale(1.0, 4.0); /* Opera */
+	-webkit-transform: scale3d(1.0, 4.0, 1.0); /* Safari and Chrome */
+}
+
+.rotation-90{
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); /* IE 9 */
+	-moz-transform:rotate(90deg); /* Firefox */
+	-o-transform:rotate(90deg); /* Opera */
+	-webkit-transform: rotate(90deg); /* Safari and Chrome */
+}
+
+.rotation-180{
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg); /* IE 9 */
+	-moz-transform:rotate(180deg); /* Firefox */
+	-o-transform:rotate(180deg); /* Opera */
+	-webkit-transform: rotate(180deg); /* Safari and Chrome */
+}
+
+.rotation-270{
+	transform:rotate(270deg);
+	-ms-transform:rotate(270deg); /* IE 9 */
+	-moz-transform:rotate(270deg); /* Firefox */
+	-o-transform:rotate(270deg); /* Opera */
+	-webkit-transform: rotate(270deg); /* Safari and Chrome */
+}
+
+.rotation-360{
+	transform:rotate(360deg);
+	-ms-transform:rotate(360deg); /* IE 9 */
+	-moz-transform:rotate(360deg); /* Firefox */
+	-o-transform:rotate(360deg); /* Opera */
+	-webkit-transform: rotate(360deg); /* Safari and Chrome */
+}
+
+.vertical{
+	/* Firefox */
+	display:-moz-box;
+	-moz-box-orient:vertical;
+	
+	/* Safari, Opera, and Chrome */
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	
+	/* W3C */
+	display:box;
+	box-orient:vertical;
+	
+	/*-webkit-box-orient: vertical;*/
+}
+.maximized-off{
+	transform:scale(2, 2);
+	-ms-transform:scale(2, 2); /* IE 9 */
+	-moz-transform:scale(2, 2, ); /* Firefox */
+	-webkit-transform: scale3d(2, 2, 1.0); /* Safari and Chrome */
+	-o-transform:scale(2, 2); /* Opera */
+	opacity: 0;
+}

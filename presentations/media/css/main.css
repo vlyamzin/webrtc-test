@@ -1,0 +1,145 @@
+.long-duration {
+    -webkit-transition-duration: 3s;
+}
+
+/******* Titre de la séquence
+ ******************************************************************************/
+#content0 {
+    font-family: 'conduit_itc_light';
+    color: #e41b2a;
+    font-size: 72px;
+    font-weight: bold;
+    text-align: center;
+    top: 45px;
+}
+
+#content0 img {
+    position: relative;
+    margin: auto;
+}
+
+#content0 .bold {
+    position: relative;
+    font-family: 'conduit_itc_bold';
+}
+
+/******* Iframe
+ ******************************************************************************/
+#iframe-container {
+    width: 1024px;
+    height: 768px;
+    z-index: 999;
+    background-color: transparent;
+}
+
+#iframe {
+    background-color: transparent;
+}
+
+/******* Arbre
+ ******************************************************************************/
+#tree {
+    width: 448px;
+    height: 556px;
+    top: 212px;
+    left: 64px;
+    background: url("../images/arbre.png") no-repeat top center;
+}
+
+#content3 {
+    top: 410px;
+    left: 150px;
+}
+
+.move_elements {
+    -webkit-transform: translate3d(610px, 0px, 0px);
+    -webkit-transition-delay: 0s;
+    -webkit-transition-duration: 2s;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+/******* Maison
+ ******************************************************************************/
+#house {
+    width: 578px;
+    height: 508px;
+    top: 164px;
+    left: 446px;
+    background: url("../images/maison.png") no-repeat top center;
+}
+
+#content4 {
+    top: 350px;
+    left: 440px;
+    -webkit-animation-delay: 0.7s;
+}
+
+/******* Voiture
+ ******************************************************************************/
+#car {
+    width: 253px;
+    height: 193px;
+    top: 428px;
+    left: 655px;
+    background: url("../images/voiture.png") no-repeat top center;
+}
+
+#content5 {
+    top: 385px;
+    left: 650px;
+    -webkit-animation-delay: 1.4s;
+}
+
+.animate_car {
+    -webkit-transform: translate3d(-670px, 370px, 0px);
+    -webkit-transition-delay: 0s;
+    -webkit-transition-duration: 3s;
+}
+
+/******* Onglet 1
+ ******************************************************************************/
+#tab0 {
+    width: 196px;
+    height: 72px;
+    top: 696px;
+    left: 100px;
+    background: url("../images/onglet1.png") no-repeat top center;
+}
+
+/******* Onglet 2
+ ******************************************************************************/
+#tab1 {
+    width: 196px;
+    height: 72px;
+    top: 696px;
+    left: 400px;
+    background: url("../images/onglet2.png") no-repeat top center;
+}
+
+/******* Onglet 3
+ ******************************************************************************/
+#tab2 {
+    width: 196px;
+    height: 72px;
+    top: 696px;
+    left: 613px;
+    background: url("../images/onglet3.png") no-repeat top center;
+}
+/******* Bubble animation
+ ******************************************************************************/
+.finder {
+    opacity: 0.0;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation-name: finder_anim;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-play-state: running;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes finder_anim {
+    0% {-webkit-transform: scale3d(0.5, 0.5, 0.5);opacity:0.0;}
+    33% {-webkit-transform: scale3d(0.8, 0.8, 0.8);opacity:0.33;}
+    67% {-webkit-transform: scale3d(1.2, 1.2, 1.2);opacity:0.67;}
+    100% {-webkit-transform: scale3d(1.0, 1.0, 1.0);opacity:1.0;}
+}

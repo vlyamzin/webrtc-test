@@ -24,10 +24,13 @@
         }
     </style>
 
+    <link rel="stylesheet" href="styles.css">
+
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 </head>
 
 <body>
+
     <div id="connectionId">
         <label for="input-id">Connection id</label>
         <input type="text" name="input-id" id="input-id">
@@ -35,9 +38,23 @@
         <span id="status"></span>
     </div>
 
-    <iframe src="" frameborder="0"></iframe>
+    <iframe id="iframe-01" src="presentations/1.html" frameborder="0"></iframe>
 
+    <div id='buttons'>
+        <!-- <button onclick="SharePresentation.initScreenShareEvent()" id="cropAria">Crop</button> -->
+        <button onclick="nextSlide()" id="nextSlide">Next Slide</button>
+        <button id="start-sharing">Start sharing</button>
+    </div>
+
+    <script>
+        let i = 2;
+        function nextSlide() {
+            const iFrame = document.querySelector("#iframe-01");
+            iFrame.setAttribute("src", `presentations/${i}.html`);
+            i++;
+            if (i === 7) i = 2;
+        }
+    </script>
     <script src="screensharing.js"></script>
-</body>
 
 </html>
