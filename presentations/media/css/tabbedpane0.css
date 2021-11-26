@@ -1,0 +1,86 @@
+/******* Titre de la séquence
+ ******************************************************************************/
+#title {
+    font-family: 'conduit_itc_light';
+    color: #e41b2a;
+    font-size: 53px;
+    font-weight: bold;
+    text-align: center;
+    top: 45px;
+}
+
+#title .bold {
+    position: relative;
+    font-family: 'conduit_itc_bold';
+}
+
+
+#content0{
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.985, 0.0075, 1.0);  /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.985, 0.0075, 1.075); 
+}
+
+#answer {
+    left: 154px;
+    top: 595px;
+    width: 718px;
+    height: 107px;
+    background: url("../images/tabbedpane0_answer.png") no-repeat top center;
+}
+
+#tutorial {
+    left: 473px;
+    top: 251px;
+    width: 237px;
+    height: 155px;
+    background: url("../images/tabbedpane0_tutorial.png") no-repeat top center;
+}
+
+#bt-validate {
+    left: 825px;
+    top: 344px;
+    width: 139px;
+    height: 76px;
+    background: url("../images/tabbedpane0_validate.png") no-repeat top center;
+}
+
+#tree0{
+    left: 1px;
+    top: 484px;
+    width: 203px;
+    height: 260px;
+    background: url("../images/tabbedpane0_tree0.png") no-repeat top center;
+}
+#tree1{
+    left: 189px;
+    top: 484px;
+    width: 203px;
+    height: 259px;
+    background: url("../images/tabbedpane0_tree1.png") no-repeat top center;
+}
+#tree2{
+    left: 409px;
+    top: 485px;
+    width: 203px;
+    height: 257px;
+    background: url("../images/tabbedpane0_tree2.png") no-repeat top center;
+}
+#tree3{
+    left: 590px;
+    top: 484px;
+    width: 203px;
+    height: 259px;
+    background: url("../images/tabbedpane0_tree3.png") no-repeat top center;
+}
+#tree4{
+    left: 777px;
+    top: 483px;
+    width: 203px;
+    height: 259px;
+    background: url("../images/tabbedpane0_tree4.png") no-repeat top center;
+}
+
+.area {
+    width:135px;
+    height: 355px;
+}

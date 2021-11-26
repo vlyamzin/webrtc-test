@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Slide 1",
+    "thumbnail": "01_thumbnail.jpg",
+    "path": "01_firstSlide.html"
+  },
+  {
+    "title": "Slide Slide Slide Slide 2",
+    "thumbnail": "02_thumbnail.jpg",
+    "path": "02_secondSlide.html"
+  },
+  {
+    "title": "SlideSlideSlide3",
+    "thumbnail": "03_thumbnail.jpg",
+    "path": "03_thirdSlide.html"
+  },
+  {
+    "title": "Slide4SlideSlideSlideSlideSlideSlideSlideSlideSlideSlide4",
+    "thumbnail": "04_thumbnail.jpg",
+    "path": "04_fourthSlide.html"
+  },
+  {
+    "title": "Slide5",
+    "thumbnail": "05_thumbnail.jpg",
+    "path": "05_fifthSlide.html"
+  },
+  {
+    "title": "Slide6SlideSlideSlideSlide SlideSlideSlideSlideSlideSlide6",
+    "thumbnail": "06_thumbnail.jpg",
+    "path": "06_sixthSlide.html"
+  },
+  {
+    "title": "Slide7",
+    "thumbnail": "07_thumbnail.jpg",
+    "path": "07_seventhSlide.html"
+  }
+]

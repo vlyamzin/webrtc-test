@@ -1,0 +1,333 @@
+/******* Fond
+ ******************************************************************************/
+#fond {
+    top: 0px;
+    left: 0px;
+}
+
+.move_fond {
+    -webkit-transform: translate3d(-1829px, 0px, 0px);
+    -webkit-transition-delay: 0s;
+    -webkit-transition-duration: 5s;
+}
+
+/******* Voiture
+ ******************************************************************************/
+#voiture {
+    left: 40px;
+    top: 550px;
+    width: 580px;
+    height: 214px;
+}
+
+/******* Bulles
+ ******************************************************************************/
+#bt_zoom0 {
+    left: 574px;
+    top: 47px;
+}
+
+#bt_zoom1 {
+    left: 48px;
+    top: 194px;
+}
+
+#bt_zoom2 {
+    left: 880px;
+    top: 395px;
+}
+
+/******* Popups
+ ******************************************************************************/
+#close_popups {
+    width: 100px;
+    height: 100px;
+    left: 860px;
+    top: 40px;
+    z-index: 99;
+}
+
+/******* Car Animations
+ ******************************************************************************/
+ 
+#car {
+    left: 0px;
+    top: 0px;
+    width: 580px;
+    height: 214px;
+    background: url("../images/carPage_car.png") no-repeat top center;
+}
+.shake {
+	-webkit-animation-delay: 1s;
+	-webkit-animation-name: shake_anim;
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-play-state: running;
+}
+@-webkit-keyframes shake_anim {
+	  from {-webkit-transform: translate3D(0px, 0px, 0);-webkit-animation-timing-function: linear;}
+	  40% {-webkit-transform: translate3D(0px, -2px, 0);-webkit-animation-timing-function: linear;}
+	  80% {-webkit-transform: translate3D(0px, 2px, 0);-webkit-animation-timing-function: linear;}
+	  to {-webkit-transform: translate3D(0px, 0px, 0);-webkit-animation-timing-function: linear;}			  
+}
+
+/******* Wheels Animations
+ ******************************************************************************/
+ 
+#left_wheel {
+    left: 127px;
+    top: 125px;
+    width: 31px;
+    height: 32px;
+    background: url("../images/carPage_leftWheel.png") no-repeat top center;
+}
+#right_wheel {
+    left: 424px;
+    top: 124px;
+    width: 31px;
+    height: 32px;
+    background: url("../images/carPage_rightWheel.png") no-repeat top center;
+}
+.turns {
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-name: turns_anim;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-delay: 1s;
+	-webkit-animation-play-state: running;
+}
+@-webkit-keyframes turns_anim {
+	  from {-webkit-transform: rotate(0deg);-webkit-animation-timing-function: linear;}
+	  to {-webkit-transform: rotate(360deg);-webkit-animation-timing-function: linear;}			  
+}
+
+/******* Smokes Animations
+ ******************************************************************************/
+  
+/** Car smoke **/
+#small_smoke0 {
+    left: 80px;
+    top: 121px;
+    width: 92px;
+    height: 79px;
+    background: url("../images/carPage_carSmoke0.png") no-repeat top center;
+}
+#small_smoke1 {
+    left: 80px;
+    top: 121px;
+    width: 88px;
+    height: 87px;
+    background: url("../images/carPage_carSmoke1.png") no-repeat top center;
+	-webkit-animation-delay: 0.8s;
+}
+#small_smoke2 {
+    left: 80px;
+    top: 131px;
+    width: 92px;
+    height: 63px;
+    background: url("../images/carPage_carSmoke2.png") no-repeat top center;
+	-webkit-animation-delay: 1.2s;
+}
+.small_smoke {
+	opacity: 0;
+	-webkit-animation-name: small_smoke_anim;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-play-state: paused, running;
+}
+@-webkit-keyframes small_smoke_anim {
+	  from {-webkit-transform: translate3D(0px, 0px, 0) scale3d(0.0, 0.0, 1.0);opacity:0;-webkit-animation-timing-function: ease-in;}
+	  30% {-webkit-transform: translate3D(-30px, -25px, 0) scale3d(0.1, 0.1, 1.0);opacity:0;-webkit-animation-timing-function: ease-in;}
+	  48% {-webkit-transform: translate3D(-53px, -53px, 0) scale3d(0.5, 0.5, 1.0);opacity:1;-webkit-animation-timing-function: ease-out;}
+	  60% {-webkit-transform: translate3D(-93px, -122px, 0) scale3d(1.2, 1.2, 1.0);opacity:1;-webkit-animation-timing-function: ease-out;}	
+	  to {-webkit-transform: translate3D(-54px, -130px, 0) scale3d(1.8, 1.8, 1.0);opacity:0;-webkit-animation-timing-function: ease-out;}			  
+}
+
+ 
+/** Flue smoke **/ 
+#big_smoke_container {
+    left: 310px;
+    top: 0px;
+    width: 384px;
+    height: 122px;
+}
+  
+#big_smoke0 {
+    left: 277px;
+    top: 61px;
+    width: 140px;
+    height: 104px;
+    background: url("../images/carPage_flueSmoke0.png") no-repeat top center;
+}
+#big_smoke1 {
+    left: 287px;
+    top: 51px;
+    width: 130px;
+    height: 116px;
+    background: url("../images/carPage_flueSmoke1.png") no-repeat top center;
+	-webkit-animation-delay: 0.2s;
+}
+#big_smoke2 {
+    left: 290px;
+    top: 61px;
+    width: 116px;
+    height: 104px;
+    background: url("../images/carPage_flueSmoke2.png") no-repeat top center;
+	-webkit-animation-delay: 0.6s;
+}
+#big_smoke3 {
+    left: 291px;
+    top: 61px;
+    width: 106px;
+    height: 102px;
+    background: url("../images/carPage_flueSmoke3.png") no-repeat top center;
+	-webkit-animation-delay: 1.0s;
+}
+#big_smoke4 {
+    left: 277px;
+    top: 61px;
+    width: 140px;
+    height: 104px;
+    background: url("../images/carPage_flueSmoke0.png") no-repeat top center;
+	-webkit-animation-delay: 1.4s;
+}
+#big_smoke5 {
+    left: 290px;
+    top: 61px;
+    width: 116px;
+    height: 104px;
+    background: url("../images/carPage_flueSmoke2.png") no-repeat top center;
+	-webkit-animation-delay: 1.8s;
+}
+
+.big_smoke {
+	opacity: 0;
+	-webkit-animation-name: big_smoke_anim;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-play-state: paused;
+}
+@-webkit-keyframes big_smoke_anim {
+	  from {-webkit-transform: translate3D(0px, 0px, 0) scale3d(0.0, 0.0, 1.0);opacity:0;-webkit-animation-timing-function: ease-in;}
+	  20% {-webkit-transform: translate3D(-10px, -10px, 0) scale3d(0.15, 0.15, 1.0);opacity:0.5;-webkit-animation-timing-function: linear}
+	  50% {-webkit-transform: translate3D(-100px, -50px, 0) scale3d(0.7, 0.7, 1.0);opacity:1;-webkit-animation-timing-function: linear;}
+	  to {-webkit-transform: translate3D(-340px, -210px, 0) scale3d(1.2, 1.2, 1.0);opacity:1;-webkit-animation-timing-function: ease-out;}			  
+}
+
+/******* Pollen Animations
+ ******************************************************************************/
+ 
+#pollen_container {
+    left: 1247px;
+    top: 0px;
+    width: 825px;
+    height: 470px;
+}
+ 
+.move_pollen_container {
+    -webkit-transform: translate3d(-1247px, 0px, 0px);
+    -webkit-transition-delay: 0s;
+    -webkit-transition-duration: 5s;
+}
+ 
+#pollen0 {
+    left: 0px;
+    top: 80px;
+    width: 202px;
+    height: 101px;
+    background: url("../images/carPage_pollen0.png") no-repeat top center;
+}
+#pollen1 {
+    left: 91px;
+    top: 165px;
+    width: 128px;
+    height: 120px;
+    background: url("../images/carPage_pollen1.png") no-repeat top center;
+	-webkit-animation-delay: 1.5s;
+}
+#pollen2 {
+    left: 198px;
+    top: 122px;
+    width: 152px;
+    height: 165px;
+    background: url("../images/carPage_pollen2.png") no-repeat top center;
+	-webkit-animation-delay: 2s;
+}
+#pollen3 {
+    left: 353px;
+    top: 144px;
+    width: 128px;
+    height: 120px;
+    background: url("../images/carPage_pollen3.png") no-repeat top center;
+	-webkit-animation-delay: 4s;
+}
+#pollen4 {
+    left: 442px;
+    top: 280px;
+    width: 198px;
+    height: 114px;
+    background: url("../images/carPage_pollen4.png") no-repeat top center;
+	-webkit-animation-delay: 3s;
+}
+#pollen5 {
+    left: 594px;
+    top: 370px;
+    width: 221px;
+    height: 89px;
+    background: url("../images/carPage_pollen5.png") no-repeat top center;
+	-webkit-animation-delay: 2.5s;
+}
+#pollen6 {
+    left: -234px;
+    top: 113px;
+    width: 234px;
+    height: 172px;
+    background: url("../images/carPage_pollen6.png") no-repeat top center;
+	-webkit-animation-play-state: paused;
+}
+.pollen {
+	-webkit-animation-delay: 1s;
+	-webkit-animation-name: pollen_anim;
+	-webkit-animation-duration: 8s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-play-state: running;
+}
+@-webkit-keyframes pollen_anim {
+	  from {-webkit-transform: translate3D(0px, 0px, 0);opacity:1;-webkit-animation-timing-function: linear;}
+	  12% {-webkit-transform: translate3D(3px, 3px, 0);opacity:1;-webkit-animation-timing-function: linear;}
+	  25% {-webkit-transform: translate3D(5px, 5px, 0);opacity:0.9;-webkit-animation-timing-function: linear;}
+	  37% {-webkit-transform: translate3D(3px, 7px, 0);opacity:0.8;-webkit-animation-timing-function: linear;}
+	  50% {-webkit-transform: translate3D(0px, 10px, 0);opacity:0.8;-webkit-animation-timing-function: linear;}
+	  62% {-webkit-transform: translate3D(-3px, 7px, 0);opacity:0.8;-webkit-animation-timing-function: linear;}
+	  75% {-webkit-transform: translate3D(-5px, 5px, 0);opacity:0.9;-webkit-animation-timing-function: linear;}
+	  87% {-webkit-transform: translate3D(-3px, 3px, 0);opacity:1;-webkit-animation-timing-function: linear;}
+	  to {-webkit-transform: translate3D(0px, 0px, 0);opacity:1;-webkit-animation-timing-function: linear;}			  
+}
+
+/******* Drugstore cross Animations
+ ******************************************************************************/
+  
+#cross_container {
+    left: 944px;
+    top:441px;
+    width: 33px;
+    height: 39px;
+}
+#cross {
+    left: 0px;
+    top: 0px;
+    width: 33px;
+    height: 39px;
+    background: url("../images/carPage_cross.png") no-repeat top center;
+}
+#cross {
+	-webkit-animation-name: cross_anim;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-play-state: paused;
+}
+@-webkit-keyframes cross_anim {
+	  from {-webkit-transform: translate3D(0px, 0px, 0) scale3d(1.0, 1.0, 1.0);opacity:0.2;-webkit-animation-timing-function: linear;}
+	  50% {-webkit-transform: translate3D(1px, 1px, 0) scale3d(1.1, 1.1, 1.0);opacity:1.0;-webkit-animation-timing-function: linear}
+	  to {-webkit-transform: translate3D(0px, 0px, 0) scale3d(1.0, 1.0, 1.0);opacity:0.2;-webkit-animation-timing-function: linear;}			  
+}
