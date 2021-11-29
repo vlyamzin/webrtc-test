@@ -7,10 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebRTC Test</title>
 
-    <style>
-        #connectionId>* {
-            display: inline-block;
-        }
+  <style>
+      #connectionId {
+          background: #fff;
+      }
+
+      #connectionId > * {
+          display: inline-block;
+      }
 
         #start-connection {
             margin-left: 10px;
@@ -29,16 +33,22 @@
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 </head>
 
-<body>
+<body onload="refreshContentSize()">
 
-    <div id="connectionId">
-        <label for="input-id">Connection id</label>
-        <input type="text" name="input-id" id="input-id">
-        <button id="start-connection">Connect</button>
-        <span id="status"></span>
+<div id="connectionId">
+  <label for="input-id">Connection id</label>
+  <input type="text" name="input-id" id="input-id">
+  <button id="start-connection">Connect</button>
+  <span id="status" class></span>
+</div>
+<div style="position: relative">
+  <div id="player">
+    <div id="iFrame-wrapper" style="transform-origin: top left">
+      <iframe id="iframe-01" src="presentations/1.html" frameborder="0"></iframe>
     </div>
+  </div>
+</div>
 
-    <iframe id="iframe-01" src="presentations/1.html" frameborder="0"></iframe>
 
     <div id='buttons'>
         <!-- <button onclick="SharePresentation.initScreenShareEvent()" id="cropAria">Crop</button> -->
@@ -56,5 +66,5 @@
         }
     </script>
     <script src="screensharing.js"></script>
-
+    <script src="resizing.js"></script>
 </html>
