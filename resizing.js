@@ -12,7 +12,7 @@ function refreshContentSize(){
 
   let margin;
 
-    console.log(sdk_container, iFrame , contentWidth > 0 , contentHeight > 0)
+
   if (sdk_container && iFrame && contentWidth > 0 && contentHeight > 0) {
     if (isVertical()) {
       scale = (window.innerWidth / contentWidth);

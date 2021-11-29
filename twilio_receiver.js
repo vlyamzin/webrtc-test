@@ -24,10 +24,12 @@ class TWLReceiver {
 
 
         this.room.on('trackSubscribed', track => {
+            const container = document.querySelector('#received-content-twilio')
             if (track && track.name === 'Screensharing') {
                 const video = track.attach();
                 video.id = 'received-content';
-                document.body.appendChild(video);
+                container.appendChild(video)
+                // document.body.appendChild(video);
             }
         });
 
