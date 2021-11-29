@@ -6,6 +6,8 @@ class Sender {
     peerId;
     connection;
     connectionStatusLabel;
+    twilioRoom;
+    useTwilio = false;
 
     constructor() {
         this.peer = new Peer();
@@ -13,6 +15,7 @@ class Sender {
     }
 
     connect(id) {
+        this.useTwilio = false;
         this.connection = this.peer.connect(id, { reliable: true });
 
         this.connection.on('open', () => {
@@ -26,7 +29,20 @@ class Sender {
         this.connection.on('error', () => this.updateConnectionStatus(3));
     }
 
+    async twilioConnect(token, room) {
+        this.useTwilio = true;
+        this.twilioRoom = await Twilio.Video.connect(token, {
+            name: room
+        })
+    }
+
     startSharing(stream) {
+        if (this.useTwilio) {
+            const track = new Twilio.Video.LocalVideoTrack(stream.getTracks()[0], { name: 'Screensharing' });
+            this.twilioRoom.localParticipant.publishTrack(track);
+            return;
+        }
+
         // get stream from Canvas here
         if (!this.peerId) {
             console.log('Peer id is absent');
@@ -671,7 +687,7 @@ class SharePresentationClass {
                 };
 
                 if (stream.getAudioTracks().length !== 0) {
-                    this.audioTrack = new Twilio.Video.LocalAudioTrack(stream.getAudioTracks()[0], { name: TWILIO_TRACK_TYPE_AUDIO_SHARING });
+                    // this.audioTrack = new Twilio.Video.LocalAudioTrack(stream.getAudioTracks()[0], { name: 'TWILIO_TRACK_TYPE_AUDIO_SHARING' });
                 }
             }, delay);
         }).catch(() => {
@@ -831,8 +847,14 @@ function screenSharingPause(isPause, force) {
 
 (function () {
     const connectionIdEl = document.getElementById('input-id');
+    const twilioTokenEl = document.getElementById('twilio-token');
+    const twilioRoomEl = document.getElementById('twilio-room');
+    const twilioConnectBtn = document.getElementById('twilio-connect');
     const connectBtn = document.getElementById('start-connection');
     const shareBtn = document.getElementById('start-sharing');
+    const useTwilio = document.getElementById('twilio');
+
+
     sender = new Sender();
 
     connectBtn.addEventListener('click', () => {
@@ -846,8 +868,42 @@ function screenSharingPause(isPause, force) {
         sender.connect(id);
     });
 
+    twilioConnectBtn.addEventListener('click', () => {
+        const token = twilioTokenEl.value;
+        const room = twilioRoomEl.value;
+
+        if (!token) {
+            alert('Token is empty');
+            return;
+        }
+
+        if (!room) {
+            alert('Room name is empty');
+            return;
+        }
+
+        sender.twilioConnect(token, room);
+    })
+
+    useTwilio.addEventListener('change', (event) => {
+        toggleApproach(event.target.checked);
+    })
+
     shareBtn.addEventListener('click', () => {
         screenSharingOn();
-    })
+    });
+
+    function toggleApproach(useTwilio) {
+        const peerJSControls = document.getElementById('peerjs-ctrls');
+        const twilioControls = document.getElementById('twilio-ctrls');
+
+        if (useTwilio) {
+            peerJSControls.classList.add('hidden');
+            twilioControls.classList.remove('hidden');
+        } else {
+            peerJSControls.classList.remove('hidden');
+            twilioControls.classList.add('hidden');
+        }
+    }
 
 })()
