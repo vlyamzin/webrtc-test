@@ -8,7 +8,8 @@
     <title>WebRTC Test</title>
 
     <style>
-        #connectionId>* {
+        #peerjs-ctrls>*,
+        #twilio-ctrls>* {
             display: inline-block;
         }
 
@@ -22,20 +23,37 @@
             margin-top: 20px;
             background-color: #000;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 
     <link rel="stylesheet" href="styles.css">
 
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="//sdk.twilio.com/js/video/releases/2.15.3/twilio-video.min.js"></script>
 </head>
 
 <body>
+    <div>
+        <label for="twilio">Use twilio</label>
+        <input type="checkbox" name="twilio" id="twilio">
+    </div>
 
-    <div id="connectionId">
+    <div id="peerjs-ctrls">
         <label for="input-id">Connection id</label>
         <input type="text" name="input-id" id="input-id">
         <button id="start-connection">Connect</button>
         <span id="status"></span>
+    </div>
+
+    <div id="twilio-ctrls" class="hidden">
+        <label for="twilio-token">Token</label>
+        <input type="text" name="twilio-token" id="twilio-token">
+        <label for="twilio-room">Room</label>
+        <input type="text" name="twilio-room" id="twilio-room">
+        <button id="twilio-connect">Connect</button>
     </div>
 
     <iframe id="iframe-01" src="presentations/1.html" frameborder="0"></iframe>

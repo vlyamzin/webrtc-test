@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebRTC Video Receiver</title>
+    <title>Twilio Receiver</title>
+    <script src="//sdk.twilio.com/js/video/releases/2.15.3/twilio-video.min.js"></script>
+
     <style>
-        #connectionId>* {
+        #tokenId>* {
             display: inline-block;
         }
 
-        #start-connection {
+        #connect {
             margin-left: 10px;
         }
 
@@ -22,18 +24,20 @@
             background-color: #000;
         }
     </style>
-
-    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 </head>
 
 <body>
-    <div id="connectionId">
-        <label for="input-id">Connection id</label>
-        <input type="text" name="input-id" id="input-id">
-    </div>
-    <video id="received-content" autoplay></video>
 
-    <script src="receiver.js"></script>
+    <div id="tokenId">
+        <label for="input-id">Token</label>
+        <input type="text" name="input-id" id="input-id">
+        <button id="connect">Connect</button>
+    </div>
+
+    <div id="room-name"></div>
+
+    <script src="twilio_receiver.js"></script>
+
 </body>
 
 </html>
