@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twilio Receiver</title>
+    <script src="//sdk.twilio.com/js/video/releases/2.15.3/twilio-video.min.js"></script>
+
+    <style>
+        #tokenId>* {
+            display: inline-block;
+        }
+
+        #connect {
+            margin-left: 10px;
+        }
+
+        #received-content {
+            width: 1024px;
+            height: 768px;
+            margin-top: 20px;
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="tokenId">
+        <label for="input-id">Token</label>
+        <input type="text" name="input-id" id="input-id">
+        <button id="connect">Connect</button>
+    </div>
+
+    <div id="room-name"></div>
+
+    <script src="twilio_receiver.js"></script>
+
+</body>
+
+</html>
