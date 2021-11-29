@@ -1,3 +1,11 @@
+body {
+    background-color: #333;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    font-family: Lato, sans-serif;
+}
+
 #iframe-01 {
   width: 1024px;
   height: 768px;
@@ -54,4 +62,39 @@
   padding: 1rem;
   background: #6a6a6a;
   z-index: 999;
+}
+
+/*player css*/
+#player {
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+}
+
+#player,
+#player *{
+    box-sizing: border-box;
+}
+
+/* Default CSS for colorpicker (rename "#player" selector if needed as well) */
+#player #colorpicker {
+    right: 14px;
+}
+
+#player #colorpicker div:first-child {
+    margin-left: -11px !important;
+}
+
+#player #colorpicker.hidden {
+    right: -19px;
+}
+#player canvas#canvas-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: -5;
 }

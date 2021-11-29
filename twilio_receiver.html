@@ -9,6 +9,15 @@
     <script src="//sdk.twilio.com/js/video/releases/2.15.3/twilio-video.min.js"></script>
 
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #333;
+        }
+        #tokenId, #room-name {
+            background: white;
+        }
+
         #tokenId>* {
             display: inline-block;
         }
@@ -17,11 +26,21 @@
             margin-left: 10px;
         }
 
-        #received-content {
-            width: 1024px;
-            height: 768px;
+        #received-content-twilio {
+            /*width: 1024px;*/
+            /*height: 768px;*/
             margin-top: 20px;
             background-color: #000;
+        }
+        .video {
+            display: block;
+            height: 100%;
+            max-height: 100%;
+            max-width: 100%;
+            margin: auto;
+        }
+        .video-block {
+            height: 91vh;
         }
     </style>
 </head>
@@ -35,6 +54,10 @@
     </div>
 
     <div id="room-name"></div>
+
+    <div class="video-block">
+        <video id="received-content-twilio" autoplay class="video"></video>
+    </div>
 
     <script src="twilio_receiver.js"></script>
 

@@ -8,6 +8,9 @@
     <title>WebRTC Test</title>
 
     <style>
+        #peerjs-ctrls, #twilio-ctrls {
+            background: #fff;
+        }
         #peerjs-ctrls>*,
         #twilio-ctrls>* {
             display: inline-block;
@@ -35,8 +38,8 @@
     <script src="//sdk.twilio.com/js/video/releases/2.15.3/twilio-video.min.js"></script>
 </head>
 
-<body>
-    <div>
+<body onload="refreshContentSize()">
+    <div style="background: #fff">
         <label for="twilio">Use twilio</label>
         <input type="checkbox" name="twilio" id="twilio">
     </div>
@@ -56,7 +59,13 @@
         <button id="twilio-connect">Connect</button>
     </div>
 
-    <iframe id="iframe-01" src="presentations/1.html" frameborder="0"></iframe>
+    <div style="position: relative">
+        <div id="player">
+            <div id="iFrame-wrapper" style="transform-origin: top left">
+                <iframe id="iframe-01" src="presentations/1.html" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
 
     <div id='buttons'>
         <!-- <button onclick="SharePresentation.initScreenShareEvent()" id="cropAria">Crop</button> -->
@@ -74,5 +83,5 @@
         }
     </script>
     <script src="screensharing.js"></script>
-
+    <script src="resizing.js"></script>
 </html>
