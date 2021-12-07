@@ -7,11 +7,14 @@ class Sender {
     connection;
     connectionStatusLabel;
     twilioRoom;
+    logger;
     useTwilio = false;
+    useLogger = false;
 
-    constructor() {
+    constructor(withLogs) {
         this.peer = new Peer();
         this.connectionStatusLabel = document.getElementById('status');
+        this.useLogger = !!withLogs;
     }
 
     connect(id) {
@@ -31,9 +34,30 @@ class Sender {
 
     async twilioConnect(token, room) {
         this.useTwilio = true;
+
+        if (this.useLogger) {
+            this.initLogger();
+        }
+
         this.twilioRoom = await Twilio.Video.connect(token, {
-            name: room
-        })
+            name: room,
+            automaticSubscription: true,
+            tracks: [],
+            video: { height: 720, frameRate: 24, width: 1280 },
+            bandwidthProfile: {
+                video: {
+                    mode: 'grid',
+                    trackSwitchOffMode: 'detected',
+                    maxSubscriptionBitrate: 0,
+                    contentPreferencesMode: 'manual'
+                }
+            },
+            maxAudioBitrate: 16000,
+            // preferredVideoCodecs: [{ codec: 'VP8', simulcast: true }],
+            networkQuality: { local: 1, remote: 1 }
+        });
+
+        this.twilioRoom.on('participantConnected', (p) => console.log(`Connected: ${p}`));
     }
 
     startSharing(stream) {
@@ -50,14 +74,6 @@ class Sender {
         }
 
         this.peer.call(this.peerId, stream);
-
-        // navigator.mediaDevices.getUserMedia({ video: true })
-        //     .then((stream) => {
-        //         var call = this.peer.call(this.peerId, stream);
-        //     })
-        //     .catch(() => {
-        //         console.log('Failed to get local stream', err);
-        //     });
     }
 
     updateConnectionStatus(status) {
@@ -75,6 +91,20 @@ class Sender {
                 this.connectionStatusLabel.innerHTML = ''
         }
     }
+
+    initLogger() {
+        const logger = Twilio.Video.Logger.getLogger('twilio-video');
+        const chunks = [];
+        const originalFactory = logger.methodFactory;
+        logger.methodFactory = function (methodName, logLevel, loggerName) {
+            const method = originalFactory(methodName, logLevel, loggerName);
+            return function (datetime, logLevel, component, message, data) {
+                const prefix = '[IQVIA Canvas Screensharing app]';
+                method(prefix, datetime, logLevel, component, message, data);
+            };
+        };
+        logger.setLevel('debug');
+    }
 }
 
 
@@ -91,6 +121,7 @@ const screenSharingStateEnum = {
 }
 
 class SharePresentationClass {
+    // USE
     BACKDROP_COLOR = '#00000073';
     CROP_X = 0;             // x coordinate of crop canvas
     CROP_Y = 0;             // y coordinate of crop canvas
@@ -543,8 +574,8 @@ class SharePresentationClass {
         setTimeout(() => {
             sharingContainer.style.display = null;
         }, 500)
-        const sharingScreen = document.createElement('canvas');
-        sharingScreen.setAttribute('id', 'sharingScreen');
+        // const sharingScreen = document.createElement('canvas');
+        // sharingScreen.setAttribute('id', 'sharingScreen');
         const sharingStream = document.createElement('video');
         sharingStream.setAttribute('id', 'sharingStream');
         sharingStream.muted = true;
@@ -571,7 +602,7 @@ class SharePresentationClass {
             callback: this.startSharing.bind(this)
         };
 
-        sharingContainer.appendChild(sharingScreen);
+        // sharingContainer.appendChild(sharingScreen);
         sharingContainer.appendChild(sharingStream);
         sharingContainer.appendChild(btnContainer);
 
@@ -670,12 +701,14 @@ class SharePresentationClass {
                 this.addElementsForSharing();
                 this.setDefaultAreaSize();
                 this.mediaElement = document.getElementById('sharingStream');
+                const _canvas = document.getElementById('sharingScreen');
+                const _context = _canvas.getContext('2d');
                 this.mediaElement.ontimeupdate = (ev) => {
                     if (!inited) {
                         this.mediaElement.style.display = 'none';
                         inited = true;
                     }
-                    this.cropFrame(ev, this.mediaElement);
+                    this.cropFrame(_canvas, _context, this.mediaElement);
                 };
                 this.mediaElement.srcObject = stream;
                 this.mediaElement.play();
@@ -696,34 +729,80 @@ class SharePresentationClass {
         })
     }
 
-    cropFrame(ev, video) {
-        const _canvas = document.getElementById('sharingScreen');
-        if (!_canvas) return;
-        const _context = _canvas.getContext('2d');
+    cropFrame(canvas, context, video) {
+        // const _canvas = document.getElementById('sharingScreen');
+        if (!canvas) return;
+        // const _context = _canvas.getContext('2d');
 
-        _canvas.width = this.correctionDPI(this.CROP_W);
-        _canvas.height = this.correctionDPI(this.CROP_H);
-        _context.drawImage(
-            video,
-            this.correctionDPI(this.CROP_X),
-            this.correctionDPI(this.CROP_Y),
-            this.correctionDPI(this.CROP_W),
-            this.correctionDPI(this.CROP_H), 0, 0,
-            this.correctionDPI(this.CROP_W),
-            this.correctionDPI(this.CROP_H)
-        );
+        const settings = this.stream.getVideoTracks()[0].getSettings();
+
+        if (settings) {
+            const w = settings.width;
+            const h = settings.height;
+            canvas.width = w;
+            canvas.height = h;
+
+        }
+
+
+        context.drawImage(video, 0, 0);
+
+
+        // canvas.width = this.correctionDPI(this.CROP_W);
+        // canvas.height = this.correctionDPI(this.CROP_H);
+        // context.drawImage(
+        //     video,
+        //     this.correctionDPI(this.CROP_X),
+        //     this.correctionDPI(this.CROP_Y),
+        //     this.correctionDPI(this.CROP_W),
+        //     this.correctionDPI(this.CROP_H), 0, 0,
+        //     this.correctionDPI(this.CROP_W),
+        //     this.correctionDPI(this.CROP_H)
+        // );
     }
 
     shareCroppedStream() {
         const _canvas = document.getElementById('sharingScreen');
         if (!_canvas) return;
         const MediaStream = _canvas.captureStream();
+        // console.log(MediaStream.getVideoTracks()[0].getSettings());
+        // this.recordStreamLocally(MediaStream);
+
+
+        // Whole screen. NO CANVAS
+        // sender.startSharing(this.stream);
+        // Cropped screen. Canvas
         sender.startSharing(MediaStream);
         // this.screenTrack = new Twilio.Video.LocalVideoTrack(MediaStream.getTracks()[0], { name: TWILIO_TRACK_TYPE_SHARING });
         // this.currentRoom.localParticipant.publishTrack(this.screenTrack);
         if (this.audioTrack) {
             //   this.currentRoom.localParticipant.publishTrack(this.audioTrack);
         }
+    }
+
+    recordStreamLocally(stream) {
+        const chunks = [];
+        this.recorder = new MediaRecorder(stream);
+        this.recorder.start();
+
+        this.recorder.addEventListener('dataavailable', (event) => {
+            chunks.push(event.data);
+        });
+
+        this.recorder.addEventListener('stop', (value) => {
+            const link = document.createElement('a');
+            const blob = new Blob(chunks, { type: 'video/webm' });
+            const url = window.URL.createObjectURL(blob);
+
+            link.setAttribute('style', 'display:none');
+            document.body.appendChild(link);
+            link.href = url;
+            link.download = 'file.webm';
+            link.click();
+
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(link);
+        })
     }
 
     setSharingPause(isPause) {
@@ -825,6 +904,11 @@ function screenSharingOff(force) {
     if (!SharePresentation) return;
 
     SharePresentation.toggleSharingButton(false);
+
+    if (SharePresentation.hasOwnProperty('recorder')) {
+        SharePresentation.recorder.stop();
+    }
+
     // by requirements the user action  should not remove the stream, but pause it
     screenSharingState.push(screenSharingStateEnum.MANUALLY_PAUSED);
     screenSharingPause(true);
@@ -854,8 +938,10 @@ function screenSharingPause(isPause, force) {
     const shareBtn = document.getElementById('start-sharing');
     const useTwilio = document.getElementById('twilio');
 
+    const gatherLogs = true;
 
-    sender = new Sender();
+
+    sender = new Sender(gatherLogs);
 
     connectBtn.addEventListener('click', () => {
         const id = connectionIdEl.value;

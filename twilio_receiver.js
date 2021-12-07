@@ -12,9 +12,8 @@ class TWLReceiver {
     }
 
     async connect(token) {
-        this.localTracks = await Twilio.Video.createLocalTracks();
         this.room = await Twilio.Video.connect(token, {
-            tracks: this.localTracks
+            tracks: []
         });
 
         this.roomNameEl.innerText = `Room name: ${this.room.name}`;

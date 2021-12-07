@@ -49,9 +49,9 @@
     </div>
 
     <div id="twilio-ctrls" class="hidden">
-        <label for="twilio-token">Token</label>
+        <label for="twilio-token">Participant Token</label>
         <input type="text" name="twilio-token" id="twilio-token">
-        <label for="twilio-room">Room</label>
+        <label for="twilio-room">Room Name</label>
         <input type="text" name="twilio-room" id="twilio-room">
         <button id="twilio-connect">Connect</button>
     </div>
@@ -63,6 +63,8 @@
         <button onclick="nextSlide()" id="nextSlide">Next Slide</button>
         <button id="start-sharing">Start sharing</button>
     </div>
+
+    <canvas id="sharingScreen"></canvas>
 
     <script>
         let i = 2;
