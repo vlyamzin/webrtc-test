@@ -53,7 +53,7 @@ class Sender {
                 }
             },
             maxAudioBitrate: 16000,
-            // preferredVideoCodecs: [{ codec: 'VP8', simulcast: true }],
+            preferredVideoCodecs: [{ codec: 'VP8', simulcast: true }],
             networkQuality: { local: 1, remote: 1 }
         });
 
@@ -95,15 +95,31 @@ class Sender {
     initLogger() {
         const logger = Twilio.Video.Logger.getLogger('twilio-video');
         const chunks = [];
+        const that = this;
         const originalFactory = logger.methodFactory;
         logger.methodFactory = function (methodName, logLevel, loggerName) {
             const method = originalFactory(methodName, logLevel, loggerName);
             return function (datetime, logLevel, component, message, data) {
                 const prefix = '[IQVIA Canvas Screensharing app]';
+                const msg = `${prefix} ${datetime}, ${logLevel}, ${component}, ${message}, ${JSON.stringify(data)}`
+                // that.postLog(msg);
                 method(prefix, datetime, logLevel, component, message, data);
             };
         };
         logger.setLevel('debug');
+    }
+
+    postLog(message) {
+        fetch(`${location.origin}/log`, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            referrerPolicy: 'no-referrer',
+            body: message // body data type must match "Content-Type" header
+        });
     }
 }
 
@@ -317,7 +333,7 @@ class SharePresentationClass {
 
             // correct coordinates based on screen-sharing type (the whole screen of browser/tab only)
             // 'monitor' is the whole screen
-            // it might be a chance when displaySurface prop is not defined. It happens only in Firefox (version < 93)
+            // there might be a chance when displaySurface prop is not defined. It happens only in Firefox (version < 93)
             // as it does not support MediaTrackSettings.displaySurface
             if (!displaySurface || displaySurface === 'monitor' || displaySurface === 'window') {
                 this.CROP_X = this.START_X + screenOffsetLeft;
@@ -770,9 +786,9 @@ class SharePresentationClass {
 
 
         // Whole screen. NO CANVAS
-        // sender.startSharing(this.stream);
+        sender.startSharing(this.stream);
         // Cropped screen. Canvas
-        sender.startSharing(MediaStream);
+        // sender.startSharing(MediaStream);
         // this.screenTrack = new Twilio.Video.LocalVideoTrack(MediaStream.getTracks()[0], { name: TWILIO_TRACK_TYPE_SHARING });
         // this.currentRoom.localParticipant.publishTrack(this.screenTrack);
         if (this.audioTrack) {
@@ -942,6 +958,13 @@ function screenSharingPause(isPause, force) {
 
 
     sender = new Sender(gatherLogs);
+
+
+    // TEMP
+    useTwilio.checked = true;
+    twilioRoomEl.value = 'twilioTest';
+    twilioTokenEl.value = 'eyJjdHkiOiJ0d2lsaW8tZnBhO3Y9MSIsInR5cCI6IkpXVCIsImFsZyI6IkhTMjU2In0.eyJqdGkiOiJTSzU0YjE1MTliZDE5ZmY0ZmMzNTUwZWNlNmYxNjA4MzI5LTE2Mzg4ODcwNzIiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJwYXJ0aWNpcGFudCIsInZpZGVvIjp7InJvb20iOiJ0d2lsaW9UZXN0In19LCJpYXQiOjE2Mzg4ODcwNzIsImV4cCI6MTYzODg5MDY3MiwiaXNzIjoiU0s1NGIxNTE5YmQxOWZmNGZjMzU1MGVjZTZmMTYwODMyOSIsInN1YiI6IkFDOTEyOWUyZDFkNTRkMzQ2MDU5MzdkZGFlMjU0MGQ0ZmYifQ=.xEbQxBVqJBjiP5ls0aL61Z_AHaguHWUzvYl1kajcDQ0';
+    toggleApproach(useTwilio.checked);
 
     connectBtn.addEventListener('click', () => {
         const id = connectionIdEl.value;
