@@ -2,6 +2,7 @@
 /dist
 /tmp
 /out-tsc
+log.txt
 
 # Runtime data
 pids

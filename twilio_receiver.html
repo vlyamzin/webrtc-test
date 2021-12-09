@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twilio Receiver</title>
-    <script src="//sdk.twilio.com/js/video/releases/2.15.3/twilio-video.min.js"></script>
+    <script src="//sdk.twilio.com/js/video/releases/2.18.1/twilio-video.min.js"></script>
 
     <style>
         #tokenId>* {
@@ -18,8 +18,6 @@
         }
 
         #received-content {
-            width: 1024px;
-            height: 768px;
             margin-top: 20px;
             background-color: #000;
         }
@@ -29,7 +27,7 @@
 <body>
 
     <div id="tokenId">
-        <label for="input-id">Token</label>
+        <label for="input-id">Host Token</label>
         <input type="text" name="input-id" id="input-id">
         <button id="connect">Connect</button>
     </div>
