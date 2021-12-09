@@ -657,7 +657,7 @@ class SharePresentationClass {
     // TODO REMOVE LATER
     // TEST with manual encoding
     encodeVideo(stream) {
-        const worker = new Worker('encoder-worker.js', { name: 'Video Encoder' });
+        const worker = new Worker('src/encoder-worker.js', { name: 'Video Encoder' });
 
         worker.onmessage = function (e) {
             // Recreate worker in case of an error
